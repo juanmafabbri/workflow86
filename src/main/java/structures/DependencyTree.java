@@ -1,8 +1,5 @@
 package structures;
 
-import structures.Node;
-import structures.Structure;
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,8 +21,8 @@ public class DependencyTree implements Structure {
         //Iterate the
         for (int i = 0; dependenciesOfCurrentModule.size() > i; i++){
             String currentModule = dependenciesOfCurrentModule.get(i);
-            boolean repeatedChild = root.getChildren().stream().anyMatch(element -> element.getValue() == currentModule);
-
+            boolean repeatedChild = root.getChildren().stream().anyMatch(
+                                        element -> element.getValue() == currentModule);
             //Checking if there are a repeated child
             if (!repeatedChild) {
                 root.getChildren().add(new Node(currentModule));

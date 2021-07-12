@@ -12,8 +12,6 @@ import java.util.List;
 public class Workflow86 {
 
     public static void main(String[] arg) {
-
-
         HashMap<String, List<String>> example1Modules = new HashMap<>();
         example1Modules.put("A", Arrays.asList("B", "C", "D"));
         example1Modules.put("C", Arrays.asList("E", "F", "G"));
@@ -25,26 +23,17 @@ public class Workflow86 {
         example2Modules.put("G", Arrays.asList("H", "I"));
         example2Modules.put("I", Arrays.asList("D"));
 
-        /*HashMap<String, List<String>> example3Modules = new HashMap<>();
-        example3Modules.put("A", Arrays.asList("B", "C", "D"));
-        example3Modules.put("C", Arrays.asList("E", "F", "G", "E"));
-        example3Modules.put("G", Arrays.asList("H", "I"));
-        example3Modules.put("I", Arrays.asList("C"));*/
-
         //Use case #1
         String useCase1title = "Example 1";
         List<String> modulesExample1 = Arrays.asList("G", "C", "A");
         Printer.printInitialData(useCase1title, example1Modules);
-
         process(example1Modules, modulesExample1);
 
         //Use case #2
         String useCase2title = "Example 2";
         List<String> modulesExample2 = Arrays.asList("G", "C", "A");
         Printer.printInitialData(useCase2title, example2Modules);
-
         process(example2Modules, modulesExample2);
-
     }
 
     private static void process(HashMap<String, List<String>> example1Modules, List<String> modulesExample1) {
@@ -52,11 +41,12 @@ public class Workflow86 {
             Structure example1DependencyTree = new DependencyTree(example1Modules);
             String moduleName = module;
 
-            //Create dependency tree
-            Node root = new Node(moduleName);
             List<String> dependencies = example1DependencyTree.getDependenciesModulesOf(moduleName);
 
+            //Create dependency tree
+            Node root = new Node(moduleName);
             Node tree = example1DependencyTree.generate(root, dependencies);
+
             TreeTraversal postOrderTraversal = new PostOrderTraversal();
             List<String> output = postOrderTraversal.traverse(tree);
 

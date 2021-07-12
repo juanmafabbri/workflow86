@@ -25,11 +25,9 @@ public class Printer {
     }
 
     public static void printResult(String moduleName, List<String> output) {
-
         StringJoiner joiner = new StringJoiner(",");
         output.forEach(value -> joiner.add(value));
 
         System.out.println("Dependencies for Module "+ moduleName +": {"+ joiner.toString() +"}");
-
     }
 }

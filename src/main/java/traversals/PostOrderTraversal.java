@@ -27,7 +27,6 @@ public class PostOrderTraversal implements TreeTraversal {
 
 
     public List<String> traverse(Node root) {
-
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
 
@@ -47,8 +46,6 @@ public class PostOrderTraversal implements TreeTraversal {
                 continue;
             }
 
-            // We will pop the top of the stack and
-            // add it to our answer
             Pair temp = stack.pop();
             postorderTraversal.add(temp.node.getValue());
 
