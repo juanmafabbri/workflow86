@@ -30,8 +30,6 @@ public class PostOrderTraversal implements TreeTraversal {
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
 
-                // Push the root and it's index
-                // into the stack
                 stack.push(new Pair(root, currentRootIndex));
                 currentRootIndex = 0;
 

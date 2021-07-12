@@ -7,8 +7,7 @@ import traversals.TreeTraversal;
 
 import java.util.*;
 
-
-public class FindOutTreePostOrderTrasversalTest {
+public class FindOutTreePostOrderTraversalExample1Test {
 
     /** Data use case
     Module A: B, C, D
@@ -18,20 +17,12 @@ public class FindOutTreePostOrderTrasversalTest {
     DependencyTree example1DependencyTree = new DependencyTree(initExample1Data());
     TreeTraversal postOrderTraversal = new PostOrderTraversal();
 
-
     @Test
     public void showsGDependenciesTest() throws Exception {
-
-
-
-
-        //given un Id
+        //given
         String gDependency = "G";
-        //Armo arbol
         Node root = new Node(gDependency);
         List<String> dependenciesOfG = example1DependencyTree.getDependenciesModulesOf(gDependency);
-
-
         Node tree = example1DependencyTree.generate(root, dependenciesOfG);
 
         //when
@@ -39,21 +30,14 @@ public class FindOutTreePostOrderTrasversalTest {
 
         //then
         Assertions.assertEquals(GoutputExpected(), output);
-
     }
 
-    //OUTPUT B,E,F,H,I,G,C,D
-    //FALLA PORQ ESTOY PONIENDO LOS NODOS DEL MEDIO
     @Test
     public void showsADependenciesTest() throws Exception {
-
-        //given un Id
+        //given
         String ADependency = "A";
-        //Armo arbol
         Node root = new Node(ADependency);
         List<String> dependenciesOfA = example1DependencyTree.getDependenciesModulesOf(ADependency);
-
-
         Node tree = example1DependencyTree.generate(root, dependenciesOfA);
 
         //when
@@ -61,22 +45,14 @@ public class FindOutTreePostOrderTrasversalTest {
 
         //then
         Assertions.assertEquals(AoutputExpected(), output);
-
     }
 
     @Test
     public void showsCDependenciesTest() throws Exception {
-
-        DependencyTree example1DependencyTree = new DependencyTree(initExample1Data());
-
-
-        //given un Id
+        //given
         String CDependency = "C";
-        //Armo arbol
         Node root = new Node(CDependency);
         List<String> dependenciesOfA = example1DependencyTree.getDependenciesModulesOf(CDependency);
-
-
         Node tree = example1DependencyTree.generate(root, dependenciesOfA);
 
         //when
@@ -84,7 +60,6 @@ public class FindOutTreePostOrderTrasversalTest {
 
         //then
         Assertions.assertEquals(CoutputExpected(), output);
-
     }
 
     @Test
@@ -92,12 +67,10 @@ public class FindOutTreePostOrderTrasversalTest {
         HashMap<String, List<String>> exampleModuleEmpty = new HashMap<>();
         exampleModuleEmpty.put("E", new ArrayList<>());
 
-        //given un Id
+        //given
         String emptyDependency = "E";
-        //Armo arbol
         Node root = new Node(emptyDependency);
         List<String> dependenciesOf = example1DependencyTree.getDependenciesModulesOf(emptyDependency);
-
         Node tree = example1DependencyTree.generate(root, dependenciesOf);
         postOrderTraversal = new PostOrderTraversal();
 
@@ -146,7 +119,4 @@ public class FindOutTreePostOrderTrasversalTest {
         outputExpected.add("G");
         return outputExpected;
     }
-
-
-
 }

@@ -18,16 +18,16 @@ public class DependencyTree implements Structure {
         if(root == null || dependenciesOfCurrentModule == null || dependenciesOfCurrentModule.isEmpty()) {
             return new Node("");
         }
-        //Iterate the
+
         for (int i = 0; dependenciesOfCurrentModule.size() > i; i++){
             String currentModule = dependenciesOfCurrentModule.get(i);
             boolean repeatedChild = root.getChildren().stream().anyMatch(
                                         element -> element.getValue() == currentModule);
-            //Checking if there are a repeated child
+            //Check if there is a repeated child
             if (!repeatedChild) {
                 root.getChildren().add(new Node(currentModule));
             }
-            //Adding children if there are
+            //Add children if there are
             List<String> subModules = getDependenciesModulesOf(currentModule);
             if(subModules != null && !subModules.isEmpty()) {
                 Node lastNodeAdded = root.getChildren().get(root.getChildren().size() - 1);
